@@ -2,7 +2,6 @@ package core;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-import plantController.SiloCtrlEvent;
 
 public abstract class State {
 	private Transition outTrans;
