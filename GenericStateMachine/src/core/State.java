@@ -24,7 +24,8 @@ public abstract class State {
 		
 		return ev;
 	}
-	public Transition getActiveTransition(StateMachineReception curEvent) {		// created for testing. Valid just for one trans per state. to be deleted
+	
+	public Transition getActiveTransition(SMReception curEvent) {		// created for testing. Valid just for one trans per state. to be deleted
 		// TODO Auto-generated method stub
 		return outTrans.trigger(curEvent)? outTrans: null;
 	}

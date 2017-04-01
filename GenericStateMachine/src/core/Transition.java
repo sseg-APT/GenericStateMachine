@@ -7,6 +7,6 @@ public abstract class Transition {
 		itsTargetState = ts;
 	}
 		
-	abstract protected boolean trigger(StateMachineReception smr);
+	abstract protected boolean trigger(SMReception smr);
 	abstract protected void effect();
 }

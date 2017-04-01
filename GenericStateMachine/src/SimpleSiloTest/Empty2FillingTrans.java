@@ -1,7 +1,7 @@
 package SimpleSiloTest;
 
 import core.State;
-import core.StateMachineReception;
+import core.SMReception;
 import core.Transition;
 
 public class Empty2FillingTrans extends Transition {
@@ -12,7 +12,7 @@ public class Empty2FillingTrans extends Transition {
 	}
 
 	@Override
-	protected boolean trigger(StateMachineReception smr) {
+	protected boolean trigger(SMReception smr) {
 		// TODO Auto-generated method stub
 		return (smr == SimpleSiloSMEvent.FILL);
 	}

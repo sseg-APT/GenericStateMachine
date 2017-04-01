@@ -4,7 +4,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 
 
-public class MessageQueue extends ArrayBlockingQueue<StateMachineReception>{
+public class MessageQueue extends ArrayBlockingQueue<SMReception>{
 	/**
 	 * 
 	 */
@@ -14,9 +14,9 @@ public class MessageQueue extends ArrayBlockingQueue<StateMachineReception>{
 		super(n);
 	}
 
-	public StateMachineReception getNext() {
+	public SMReception getNext() {
 		// TODO Auto-generated method stub
-		StateMachineReception ev=null;
+		SMReception ev=null;
 		try {
 			ev=this.take();
 		} catch (InterruptedException e) {

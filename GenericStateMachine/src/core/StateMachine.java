@@ -1,13 +1,32 @@
 package core;
 
+import java.io.IOException;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class StateMachine {
 	public MessageQueue itsMsgQ;
-	StateMachineReception curEvent;
+	SMReception curReception;
 	State curState;
 	Transition activeTransition;
+	
+	public static Logger LOGGER; 
 		
 	public StateMachine(){
 		itsMsgQ = new MessageQueue(10);
+		
+		LOGGER = Logger.getLogger(this.getClass().getName() + " LOGGER");
+		FileHandler fh;
+		try {
+			fh = new FileHandler(new String(this.getClass().getName()+".xml"));
+			LOGGER.addHandler(fh);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		LOGGER.setLevel(Level.ALL); // Request that every detail gets logged.
+		LOGGER.info("State Machine " + this.getClass().getName() + " just started");
 	}
 	
 	public void setInitState(State s){
@@ -16,8 +35,10 @@ public class StateMachine {
 	
 public void execute(){
 	while(curState != null){		// FINAL_STATE is the state machine's final state. null is used to indicate the FINAL_STATE
-		curEvent = itsMsgQ.getNext();
-		activeTransition =curState.getActiveTransition(curEvent);
+		LOGGER.info("current state = " + curState.getClass().getName() );
+		curReception = itsMsgQ.getNext();
+		LOGGER.info("Reception received = " + curReception.toString());
+		activeTransition =curState.getActiveTransition(curReception);
 		if(activeTransition==null){
 			System.out.println("No acive transition");
 			/*if(curState.defEventPool.isDeffered(curEvent)){

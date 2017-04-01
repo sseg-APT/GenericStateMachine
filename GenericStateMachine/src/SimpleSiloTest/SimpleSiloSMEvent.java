@@ -1,8 +1,8 @@
 package SimpleSiloTest;
 
-import core.StateMachineReception;
+import core.SMReception;
 
-public enum SimpleSiloSMEvent implements StateMachineReception{
+public enum SimpleSiloSMEvent implements SMReception{
 	START(0),
 	STOP(1),
 	FILL(2),

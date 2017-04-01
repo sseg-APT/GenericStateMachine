@@ -1,5 +1,5 @@
 package core;
 
-public class Event implements StateMachineReception{
+public class Event implements SMReception{
 
 }

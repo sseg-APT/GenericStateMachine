@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="windows-1253" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067610</millis>
+  <sequence>0</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>&lt;init&gt;</method>
+  <thread>1</thread>
+  <message>State Machine SimpleSiloTest.SimpleSiloCtr just started</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>1</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>current state = SimpleSiloTest.Empty</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>2</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Reception received = FILL</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>3</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>current state = SimpleSiloTest.Filling</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>4</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Reception received = HIGH_LEVEL_REACHED</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>5</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>current state = SimpleSiloTest.Full</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>6</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Reception received = EMPTY</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>7</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>current state = SimpleSiloTest.Emptying</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>8</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>Reception received = LOW_LEVEL_REACHED</message>
+</record>
+<record>
+  <date>2017-04-01T10:51:07</date>
+  <millis>1491033067642</millis>
+  <sequence>9</sequence>
+  <logger>SimpleSiloTest.SimpleSiloCtr LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>execute</method>
+  <thread>1</thread>
+  <message>current state = SimpleSiloTest.Empty</message>
+</record>
