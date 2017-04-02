@@ -35,7 +35,7 @@ public class StateMachine {
 	
 public void execute(){
 	while(curState != null){		// FINAL_STATE is the state machine's final state. null is used to indicate the FINAL_STATE
-		LOGGER.info("current state = " + curState.getClass().getName() );
+		LOGGER.info("current state = " + curState.getClass().getName() + "\n");
 		curReception = itsMsgQ.getNext();
 		LOGGER.info("Reception received = " + curReception.toString());
 		activeTransition =curState.getActiveTransition(curReception);
