@@ -1,1 +1,6 @@
 /bin/
+.idea
+*.lck
+*.iml
+SimpleSiloTest.SimpleSiloCtr.xml
+
