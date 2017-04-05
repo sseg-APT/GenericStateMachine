@@ -1,7 +1,7 @@
 package core;
 
-public class SmBranchThread implements Runnable {
-	private StateMachine sm = null;
+//public class SmBranchThread implements Runnable {
+	/*private StateMachine sm = null;
 	
 	public SmBranchThread(StateMachine sm){
 		this.sm=sm;
@@ -11,5 +11,5 @@ public class SmBranchThread implements Runnable {
 		// TODO Auto-generated method stub
 		sm.execute();
 	}
-
-}
+*/
+//}

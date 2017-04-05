@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="windows-1253" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051476</millis>
+  <sequence>5</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>&lt;init&gt;</method>
+  <thread>12</thread>
+  <message>State Machine core.StateMachine just started
+</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051477</millis>
+  <sequence>6</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>current state = HeatedSiloTest.HeatedSiloCtr$Heating
+</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051478</millis>
+  <sequence>7</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>current state = HeatedSiloTest.HeatedSiloCtr$Full
+</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051480</millis>
+  <sequence>8</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Reception received = EMPTY</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051481</millis>
+  <sequence>9</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>current state = HeatedSiloTest.HeatedSiloCtr$Emptying
+</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051481</millis>
+  <sequence>10</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Reception received = STOP_HEATING</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051481</millis>
+  <sequence>11</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>No acive transition for reception STOP_HEATING at main branch
+</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051481</millis>
+  <sequence>12</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Reception STOP_HEATING dispatched to branch
+</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051485</millis>
+  <sequence>13</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>Reception received = LOW_LEVEL_REACHED</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051485</millis>
+  <sequence>14</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Reception received = STOP_HEATING</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051485</millis>
+  <sequence>15</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>State Machine mainSmT-branchSmT terminated</message>
+</record>
+<record>
+  <date>2017-04-06T00:17:31</date>
+  <millis>1491427051485</millis>
+  <sequence>16</sequence>
+  <logger>core.StateMachine LOGGER</logger>
+  <level>INFO</level>
+  <class>core.StateMachine</class>
+  <method>run</method>
+  <thread>12</thread>
+  <message>current state = HeatedSiloTest.HeatedSiloCtr$Empty
+</message>
+</record>

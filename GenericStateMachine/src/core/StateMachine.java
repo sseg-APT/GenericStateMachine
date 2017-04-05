@@ -3,7 +3,7 @@
 //Transition to the initial state of branch should not be defined. 
 //Only the transition of main is characterized with join=true. 
 //the branch transition to join should be assigned null as its target state
-
+//Tester is HeatedSiloTest package (see state chart)
 
 package core;
 
@@ -12,7 +12,7 @@ import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class StateMachine {
+public class StateMachine implements Runnable {
 	public MessageQueue itsMsgQ;
 	State initState;
 	SMReception curReception;
@@ -29,7 +29,7 @@ public class StateMachine {
 	public static Logger LOGGER; 
 		
 	public StateMachine(MessageQueue msgQ){
-		if(msgQ!=null) itsMsgQ = msgQ;
+		if(msgQ!=null) itsMsgQ = msgQ;		//for branch SMs
 		else 
 			itsMsgQ = new MessageQueue(10);
 		LOGGER = Logger.getLogger(this.getClass().getName() + " LOGGER");
@@ -50,7 +50,9 @@ public class StateMachine {
 		initState =s;
 	}
 	
-public void execute(){
+@Override
+public void run() {
+		// TODO Auto-generated method stub
 	curState = initState; 
 	while(curState != null){		// FINAL_STATE is the state machine's final state. null is used to indicate the FINAL_STATE
 		if(!eventDiscarded){
@@ -92,9 +94,9 @@ public void execute(){
 				forkActive = true;
 				branchMsgQ = new MessageQueue(10);
 				bsm = new StateMachine(branchMsgQ);
-				bsm.setInitState(activeTransition.branchInitState);			
-				new SmBranchThread(bsm);
-				(itsBranchThread = new Thread(new SmBranchThread(bsm))).setName("Branch Thread");
+				bsm.setInitState(activeTransition.branchInitState);	
+				itsBranchThread = new Thread(bsm);
+				itsBranchThread.setName(Thread.currentThread().getName() + "-branchSmT");
 				itsBranchThread.start();
 			}
 			
