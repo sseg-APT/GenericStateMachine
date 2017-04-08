@@ -1,18 +1,24 @@
 package core;
 
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public abstract class State {
-	private Transition outTrans;
+	private List<Transition> ourTrans;
 		
 	abstract protected void entry();
 	abstract protected void doActivity();
 	abstract protected void exit();
-	
-	public void addTransition(Transition t){
-		outTrans = t;
+
+	public State(){
+		this.ourTrans = new ArrayList<>(10);
 	}
+
+	public void addTransition(Transition t) {
+		ourTrans.add(t);
+	}
+
 	protected boolean hasCompletionTrans(){
 		boolean hct=false;
 		
@@ -24,10 +30,15 @@ public abstract class State {
 		
 		return ev;
 	}
-	
-	public Transition getActiveTransition(SMReception curEvent) {		// created for testing. Valid just for one trans per state. to be deleted
-		// TODO Auto-generated method stub
-		return outTrans.trigger(curEvent)? outTrans: null;
+
+	public Transition getActiveTransition(SMReception curEvent) {
+		//Check if event fires a transition
+		for (Transition trans : ourTrans) {
+			if (trans.trigger(curEvent)) {
+				return trans;
+			}
+		}
+		return null;
 	}
 	
 }
