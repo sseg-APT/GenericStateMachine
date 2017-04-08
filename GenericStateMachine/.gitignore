@@ -2,5 +2,5 @@
 .idea
 *.lck
 *.iml
-SimpleSiloTest.SimpleSiloCtr.xml
+/*.xml*
 
