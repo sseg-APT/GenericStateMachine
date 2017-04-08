@@ -31,7 +31,7 @@ public class StateMachine implements Runnable {
 	public StateMachine(MessageQueue msgQ){
 		if(msgQ!=null) itsMsgQ = msgQ;		//for branch SMs
 		else 
-			itsMsgQ = new MessageQueue(10);
+			itsMsgQ = new MessageQueue();
 		LOGGER = Logger.getLogger(this.getClass().getName() + " LOGGER");
 		FileHandler fh;
 		try {
@@ -64,7 +64,7 @@ public void run() {
 			// if(getValidDeferredEvent()!=null){ // gets a valid for the current state event from the deferred Pool, if any 
 				//  returns a valid for the current state deferred event for further processing
 			//} else {
-			curReception = itsMsgQ.getNext();
+			curReception = itsMsgQ.getNext(curState.getDeferredEvents());
 			LOGGER.info("Reception received = " + curReception.toString());
 			//}
 		} else 
@@ -92,7 +92,7 @@ public void run() {
 			if(activeTransition.hasFork()){
 				StateMachine bsm;
 				forkActive = true;
-				branchMsgQ = new MessageQueue(10);
+				branchMsgQ = new MessageQueue();
 				bsm = new StateMachine(branchMsgQ);
 				bsm.setInitState(activeTransition.branchInitState);	
 				itsBranchThread = new Thread(bsm);
