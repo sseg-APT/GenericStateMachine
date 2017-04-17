@@ -2,7 +2,6 @@
 .idea
 *.lck
 *.iml
-/*.xml*
 target/
 pom.xml.tag
 pom.xml.releaseBackup
