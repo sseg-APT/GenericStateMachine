@@ -1,4 +1,4 @@
-package SimpleSiloTest;
+package uml4iot.GenericStateMachine.SimpleSiloTest;
 
 public class Tester {
 

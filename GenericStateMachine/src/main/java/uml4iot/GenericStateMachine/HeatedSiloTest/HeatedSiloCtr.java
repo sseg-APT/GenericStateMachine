@@ -1,9 +1,9 @@
-package HeatedSiloTest;
+package uml4iot.GenericStateMachine.HeatedSiloTest;
 
-import core.SMReception;
-import core.State;
-import core.StateMachine;
-import core.Transition;
+import uml4iot.GenericStateMachine.core.SMReception;
+import uml4iot.GenericStateMachine.core.State;
+import uml4iot.GenericStateMachine.core.StateMachine;
+import uml4iot.GenericStateMachine.core.Transition;
 
 public class HeatedSiloCtr extends StateMachine{
 	State empty, filling, full, emptying, heating;

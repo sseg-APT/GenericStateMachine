@@ -1,9 +1,9 @@
-package SimpleSiloTest;
+package uml4iot.GenericStateMachine.SimpleSiloTest;
 
-import core.SMReception;
-import core.State;
-import core.StateMachine;
-import core.Transition;
+import uml4iot.GenericStateMachine.core.SMReception;
+import uml4iot.GenericStateMachine.core.State;
+import uml4iot.GenericStateMachine.core.StateMachine;
+import uml4iot.GenericStateMachine.core.Transition;
 
 public class SimpleSiloCtr extends StateMachine{
 	State empty, filling, full, emptying;

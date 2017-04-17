@@ -1,4 +1,4 @@
-package core;
+package uml4iot.GenericStateMachine.core;
 
 import java.util.Collection;
 import java.util.Stack;

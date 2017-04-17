@@ -1,6 +1,6 @@
-package HeatedSiloTest;
+package uml4iot.GenericStateMachine.SimpleSiloTest;
 
-import core.MessageQueue;
+import uml4iot.GenericStateMachine.core.MessageQueue;
 
 public class SignalGenerator implements Runnable {
 	private MessageQueue msgQ;
@@ -15,29 +15,27 @@ public class SignalGenerator implements Runnable {
 			msgQ.add(SimpleSiloSMEvent.FILL);
 			msgQ.add(SimpleSiloSMEvent.HIGH_LEVEL_REACHED);
 			msgQ.add(SimpleSiloSMEvent.EMPTY );
-			msgQ.add(SimpleSiloSMEvent.STOP_HEATING );
 			msgQ.add(SimpleSiloSMEvent.LOW_LEVEL_REACHED );
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}/*
+			}
 			msgQ.add(SimpleSiloSMEvent.FILL);
-			msgQ.add(SimpleSiloSMEvent.HIGH_LEVEL_REACHED);
+			msgQ.add(SimpleSiloSMEvent.STOP_FILLING);
 			msgQ.add(SimpleSiloSMEvent.EMPTY );
-			msgQ.add(SimpleSiloSMEvent.STOP_HEATING );
-			msgQ.add(SimpleSiloSMEvent.LOW_LEVEL_REACHED );
+			msgQ.add(SimpleSiloSMEvent.STOP_EMPTYING );
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}*/
-			//msgQ.add(SimpleSiloSMEvent.FILL);
-			//msgQ.add(SimpleSiloSMEvent.STOP_FILLING);
-			//msgQ.add(SimpleSiloSMEvent.EMPTY );
-			//msgQ.add(SimpleSiloSMEvent.LOW_LEVEL_REACHED );
+			}
+			msgQ.add(SimpleSiloSMEvent.FILL);
+			msgQ.add(SimpleSiloSMEvent.STOP_FILLING);
+			msgQ.add(SimpleSiloSMEvent.EMPTY );
+			msgQ.add(SimpleSiloSMEvent.LOW_LEVEL_REACHED );
 			
 		}
 	}

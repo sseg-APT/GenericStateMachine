@@ -1,6 +1,6 @@
-package SimpleSiloTest;
+package uml4iot.GenericStateMachine.SimpleSiloTest;
 
-import core.SMReception;
+import uml4iot.GenericStateMachine.core.SMReception;
 
 public enum SimpleSiloSMEvent implements SMReception{
 	START(0),

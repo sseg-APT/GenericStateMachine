@@ -1,4 +1,4 @@
-package core;
+package uml4iot.GenericStateMachine.core;
 
 //public class SmBranchThread implements Runnable {
 	/*private StateMachine sm = null;

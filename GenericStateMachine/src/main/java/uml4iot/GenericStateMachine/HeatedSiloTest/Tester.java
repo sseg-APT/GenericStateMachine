@@ -1,5 +1,5 @@
 //implemented to check SM branch support
-package HeatedSiloTest;
+package uml4iot.GenericStateMachine.HeatedSiloTest;
 
 public class Tester {
 

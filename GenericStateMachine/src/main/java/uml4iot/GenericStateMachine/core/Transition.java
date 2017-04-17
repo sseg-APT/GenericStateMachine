@@ -1,4 +1,4 @@
-package core;
+package uml4iot.GenericStateMachine.core;
 
 public abstract class Transition {
 	protected State itsTargetState;
