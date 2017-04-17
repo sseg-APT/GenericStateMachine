@@ -44,6 +44,7 @@ public class StateMachine implements Runnable {
         curState = initState;
         while (curState != null) {        // FINAL_STATE is the state machine's final state. null is used to indicate the FINAL_STATE
             if (!eventDiscarded) {
+                curState.entry();
                 curState.doActivity();    // to be defined later. Probably a Thread will be activated having as run the do method
                 LOG.info("current state = " + curState.getClass().getName() + "\n");
             }
