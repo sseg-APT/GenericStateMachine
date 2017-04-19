@@ -44,7 +44,6 @@ public class StateMachine implements Runnable {
         curState = initState;
         while (curState != null) {        // FINAL_STATE is the state machine's final state. null is used to indicate the FINAL_STATE
             if (!eventDiscarded) {
-                curState.entry();
                 curState.doActivity();    // to be defined later. Probably a Thread will be activated having as run the do method
                 LOG.info("current state = " + curState.getClass().getName() + "\n");
             }
@@ -76,6 +75,7 @@ public class StateMachine implements Runnable {
                 eventDiscarded = true;
             } else {    // fire transition
                 //curState.doActivity.terminate();		// to be defined later
+                curState.exit();
                 if (activeTransition.hasFork()) {
                     StateMachine bsm;
                     forkActive = true;
@@ -87,7 +87,6 @@ public class StateMachine implements Runnable {
                     itsBranchThread.start();
                 }
 
-                curState.exit();
                 activeTransition.effect();
                 if (activeTransition.hasJoin()) {
                     try {
@@ -100,6 +99,9 @@ public class StateMachine implements Runnable {
                 }
                 curState = activeTransition.itsTargetState;
                 eventDiscarded = false;
+                if (curState != null) {
+                    curState.entry();
+                }
             }
         }
         LOG.info("State Machine " + Thread.currentThread().getName() + " terminated");
