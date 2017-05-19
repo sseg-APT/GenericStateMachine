@@ -76,7 +76,7 @@ public class SimpleSiloCtr extends StateMachine{
 // transition definitions
 	private class Empty2FillingTrans extends Transition {
 		public Empty2FillingTrans(State targetState) {
-			super(targetState,false,false);
+			super(targetState,false,false, false);
 		}
 		@Override
 		protected boolean trigger(SMReception smr) {
@@ -90,7 +90,7 @@ public class SimpleSiloCtr extends StateMachine{
 	
 	private class Filling2FullTrans extends Transition {
 		public Filling2FullTrans(State targetState) {
-			super(targetState,false,false);
+			super(targetState,false,false, false);
 		}
 		@Override
 		protected boolean trigger(SMReception smr) {
@@ -104,7 +104,7 @@ public class SimpleSiloCtr extends StateMachine{
 	
 	private class Full2EmptyingTrans extends Transition {
 		public Full2EmptyingTrans(State targetState) {
-			super(targetState,false,false);
+			super(targetState,false,false, false);
 		}
 		@Override
 		protected boolean trigger(SMReception smr) {
@@ -118,7 +118,7 @@ public class SimpleSiloCtr extends StateMachine{
 	
 	private class Emptying2EmptyTrans extends Transition {
 		public Emptying2EmptyTrans(State targetState) {
-			super(targetState,false,false);
+			super(targetState,false,false, false);
 		}
 		@Override
 		protected boolean trigger(SMReception smr) {

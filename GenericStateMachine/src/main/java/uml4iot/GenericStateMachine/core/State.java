@@ -24,9 +24,12 @@ public abstract class State {
 	}
 
 	protected boolean hasCompletionTrans(){
-		boolean hct=false;
-		
-		return hct;
+		for (Transition trans : ourTrans) {
+			if (trans.isCompletion()){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void addDeferredEvent(SMReception event){

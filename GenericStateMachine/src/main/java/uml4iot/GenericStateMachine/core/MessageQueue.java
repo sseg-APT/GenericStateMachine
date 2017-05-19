@@ -1,5 +1,6 @@
 package uml4iot.GenericStateMachine.core;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Stack;
 import java.util.concurrent.LinkedBlockingDeque;
@@ -10,6 +11,17 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private ArrayList<MessageQueue> childList;
+
+	public MessageQueue(){
+		childList = new ArrayList<>(10);
+	}
+
+	@Override
+	public boolean add(SMReception e) {
+		forwardToChilds(e);
+		return super.add(e);
+	}
 
 
 	public SMReception getNext() {
@@ -39,8 +51,21 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
 		while (!ignored.isEmpty()){
 			this.addFirst(ignored.pop());
 		}
-
 		return ev;
+	}
+
+	public void addChildQueue(MessageQueue queue){
+		childList.add(queue);
+	}
+
+	public void removeChildQueue(MessageQueue queue){
+		childList.remove(queue);
+	}
+
+	private void forwardToChilds(SMReception message){
+		for (MessageQueue child : childList) {
+			child.add(message);
+		}
 	}
 	
 }

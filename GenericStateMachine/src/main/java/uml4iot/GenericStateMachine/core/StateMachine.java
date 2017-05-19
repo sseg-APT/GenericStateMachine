@@ -62,24 +62,16 @@ public class StateMachine implements Runnable {
 
             if (activeTransition == null) {
                 LOG.info("No acive transition for reception " + curReception.toString() + " at main branch\n");
-                if (false) {    // check if reception is deferred and if yes keep it
-                /*if(curState.defEventPool.isDeffered(curEvent)){
-					defEventsQ.putEvent(curEvent);
-					}*/
-                } else if (forkActive) {        //  forward event to branch if active
-                    branchMsgQ.add(curReception);
-                    LOG.info("Reception " + curReception.toString() + " dispatched to branch\n");
-                } else {
-                    LOG.error("Reception " + curReception.toString() + " is not handled at state " + curState);
-                }
+                LOG.error("Reception " + curReception.toString() + " is not handled at state " + curState);
                 eventDiscarded = true;
             } else {    // fire transition
-                //curState.doActivity.terminate();		// to be defined later
                 curState.exit();
+                activeTransition.effect();
                 if (activeTransition.hasFork()) {
                     StateMachine bsm;
                     forkActive = true;
                     branchMsgQ = new MessageQueue();
+                    itsMsgQ.addChildQueue(branchMsgQ);
                     bsm = new StateMachine(branchMsgQ);
                     bsm.setInitState(activeTransition.branchInitState);
                     itsBranchThread = new Thread(bsm);
@@ -87,7 +79,6 @@ public class StateMachine implements Runnable {
                     itsBranchThread.start();
                 }
 
-                activeTransition.effect();
                 if (activeTransition.hasJoin()) {
                     try {
                         (itsBranchThread).join();
