@@ -61,7 +61,7 @@ public class StateMachine implements Runnable {
             activeTransition = curState.getActiveTransition(curReception);
 
             if (activeTransition == null) {
-                LOG.error("Reception " + curReception.toString() + " is not handled at state " + curState);
+                LOG.error("Reception " + curReception.toString() + " is not handled at state " + curState.getClass().getName());
                 eventDiscarded = true;
             } else {    // fire transition
                 curState.exit();
@@ -80,7 +80,7 @@ public class StateMachine implements Runnable {
 
                 if (activeTransition.hasJoin()) {
                     try {
-                        LOG.info("No acive transition for reception " + curReception.toString() + " at main branch\n");
+                        LOG.info("Main thread is waiting branch to finish");
                         (itsBranchThread).join();
                         itsMsgQ.removeChildQueue(branchMsgQ);
                     } catch (InterruptedException e) {
