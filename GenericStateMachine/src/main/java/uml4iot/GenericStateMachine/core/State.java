@@ -42,6 +42,10 @@ public abstract class State {
 
 
 	public Transition getActiveTransition(SMReception curEvent) {
+		//If null check for completion transition
+		if (curEvent == null) {
+			return getCompletionTransition();
+		}
 		//Check if event fires a transition
 		for (Transition trans : ourTrans) {
 			if (trans.trigger(curEvent)) {
@@ -50,5 +54,14 @@ public abstract class State {
 		}
 		return null;
 	}
-	
+
+	private Transition getCompletionTransition(){
+		for (Transition trans : ourTrans) {
+			if (trans.isCompletion()){
+				return trans;
+			}
+		}
+		return null;
+	}
+
 }
