@@ -1,5 +1,5 @@
 # GenericStateMachine
-Γιαννη Ρίξε το ματιά. Μου φαίνεται καλύτερο από το Enum. Ελπίζω να έχω καταγραψει σωστά το basic flow. Αν δεις κατι πέσμου.τΟ αφήνω σε σένα να το προχωρήσεις
+
 [2Jun2017] Γιάννη δες την παρακάτω αλλαγή στην δήλωση των states.
 Instead of 
 e2ft = new Empty2FillingTrans(filling);
@@ -19,3 +19,6 @@ e2ft = new Empty2FillingTrans(empty, filling);
 7. Complete the lgpa by adding decision pseudo states for handling
     a. decision on more2Produce and
     b. STOP (deferred event) 
+
+[?????]
+Γιαννη Ρίξε το ματιά. Μου φαίνεται καλύτερο από το Enum. Ελπίζω να έχω καταγραψει σωστά το basic flow. Αν δεις κατι πέσμου.τΟ αφήνω σε σένα να το προχωρήσεις
