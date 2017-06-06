@@ -42,6 +42,7 @@ public class StateMachine implements Runnable {
     public void run() {
         // TODO Auto-generated method stub
         curState = initState;
+        curState.entry();
         while (curState != null) {        // FINAL_STATE is the state machine's final state. null is used to indicate the FINAL_STATE
             if (!eventDiscarded) {
                 curState.doActivity();    // to be defined later. Probably a Thread will be activated having as run the do method
