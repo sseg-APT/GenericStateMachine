@@ -7,13 +7,33 @@ public abstract class Transition {
 	private boolean completion = false;
 	protected State branchInitState;
 	
-	public Transition(State ts, boolean fork, boolean join, boolean completion){
-		itsTargetState = ts;
+	public Transition(State fromState, State toState, boolean fork, boolean join, boolean completion){
+		fromState.addTransition(this);
+		itsTargetState = toState;
 		this.fork = fork;
 		this.join = join;
 		this.completion = completion;
 	}
-	
+
+	public Transition(State fromState, State toState){
+		this(fromState, toState, false, false, false);
+	}
+
+	public Transition setCompletion() {
+		this.completion = true;
+		return this;
+	}
+
+	public Transition setFork() {
+		this.fork = true;
+		return this;
+	}
+
+	public Transition setJoin() {
+		this.join = true;
+		return this;
+	}
+
 	public boolean hasFork(){
 		return fork;
 	}

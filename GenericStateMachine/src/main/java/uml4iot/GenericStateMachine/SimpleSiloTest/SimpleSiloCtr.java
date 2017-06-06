@@ -16,14 +16,10 @@ public class SimpleSiloCtr extends StateMachine{
 		filling = new Filling();
 		full = new Full();
 		emptying = new Emptying();
-		e2ft = new Empty2FillingTrans(filling);
-		f2ft = new Filling2FullTrans(full);
-		f2et = new Full2EmptyingTrans(emptying);
-		e2et = new Emptying2EmptyTrans(empty);
-		empty.addTransition(e2ft);
-		filling.addTransition(f2ft);
-		full.addTransition(f2et);
-		emptying.addTransition(e2et);
+		e2ft = new Empty2FillingTrans(empty, filling);
+		f2ft = new Filling2FullTrans(filling, full);
+		f2et = new Full2EmptyingTrans(full, emptying);
+		e2et = new Emptying2EmptyTrans(emptying, empty);
 		this.setInitState(empty);
 		
 	}
@@ -75,10 +71,12 @@ public class SimpleSiloCtr extends StateMachine{
 	
 // transition definitions
 	private class Empty2FillingTrans extends Transition {
-		public Empty2FillingTrans(State targetState) {
-			super(targetState,false,false, false);
-		}
-		@Override
+
+	public Empty2FillingTrans(State fromState, State toState) {
+		super(fromState, toState);
+	}
+
+	@Override
 		protected boolean trigger(SMReception smr) {
 			return (smr == SimpleSiloSMEvent.FILL);
 		}
@@ -89,9 +87,11 @@ public class SimpleSiloCtr extends StateMachine{
 	}
 	
 	private class Filling2FullTrans extends Transition {
-		public Filling2FullTrans(State targetState) {
-			super(targetState,false,false, false);
+
+		public Filling2FullTrans(State fromState, State toState) {
+			super(fromState, toState);
 		}
+
 		@Override
 		protected boolean trigger(SMReception smr) {
 			return ((smr == SimpleSiloSMEvent.HIGH_LEVEL_REACHED) || (smr == SimpleSiloSMEvent.STOP_FILLING));
@@ -103,9 +103,11 @@ public class SimpleSiloCtr extends StateMachine{
 	}
 	
 	private class Full2EmptyingTrans extends Transition {
-		public Full2EmptyingTrans(State targetState) {
-			super(targetState,false,false, false);
+
+		public Full2EmptyingTrans(State fromState, State toState) {
+			super(fromState, toState);
 		}
+
 		@Override
 		protected boolean trigger(SMReception smr) {
 			return (smr == SimpleSiloSMEvent.EMPTY);
@@ -117,9 +119,11 @@ public class SimpleSiloCtr extends StateMachine{
 	}
 	
 	private class Emptying2EmptyTrans extends Transition {
-		public Emptying2EmptyTrans(State targetState) {
-			super(targetState,false,false, false);
+
+		public Emptying2EmptyTrans(State fromState, State toState) {
+			super(fromState, toState);
 		}
+
 		@Override
 		protected boolean trigger(SMReception smr) {
 			return ((smr == SimpleSiloSMEvent.LOW_LEVEL_REACHED) || (smr == SimpleSiloSMEvent.STOP_EMPTYING));
