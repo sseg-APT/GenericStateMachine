@@ -6,7 +6,7 @@ import java.util.Stack;
 import java.util.concurrent.LinkedBlockingDeque;
 
 
-public class MessageQueue extends LinkedBlockingDeque<SMReception> {
+public class MessageQueue<T extends SMReception> extends LinkedBlockingDeque<T> {
 	/**
 	 * 
 	 */
@@ -18,17 +18,17 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
 	}
 
 	@Override
-	public boolean add(SMReception e) {
+	public boolean add(T e) {
 		forwardToChilds(e);
 		return super.add(e);
 	}
 
 
-	public SMReception getNext() {
+	public T getNext() {
 		// TODO Auto-generated method stub
-		SMReception ev=null;
+		T ev=null;
 		try {
-			ev=this.take();
+			ev = this.take();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -36,9 +36,9 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
 		return ev;
 	}
 
-	public SMReception getNext(Collection<SMReception> ignoreSet){
-		Stack<SMReception> ignored = new Stack<>();
-		SMReception ev = null;
+	public T getNext(Collection<T> ignoreSet){
+		Stack<T> ignored = new Stack<>();
+		T ev = null;
 		//Get events until one is not in the ignoreSet
 		while (ev == null){
 			ev = getNext();
@@ -62,7 +62,7 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
 		childList.remove(queue);
 	}
 
-	private void forwardToChilds(SMReception message){
+	private void forwardToChilds(T message){
 		for (MessageQueue child : childList) {
 			child.add(message);
 		}

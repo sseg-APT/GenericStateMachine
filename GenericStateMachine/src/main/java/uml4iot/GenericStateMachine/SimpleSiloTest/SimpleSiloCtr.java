@@ -1,13 +1,13 @@
 package uml4iot.GenericStateMachine.SimpleSiloTest;
 
 import uml4iot.GenericStateMachine.core.SMReception;
-import uml4iot.GenericStateMachine.core.State;
+import uml4iot.GenericStateMachine.core.BaseState;
 import uml4iot.GenericStateMachine.core.StateMachine;
-import uml4iot.GenericStateMachine.core.Transition;
+import uml4iot.GenericStateMachine.core.BaseTransition;
 
 public class SimpleSiloCtr extends StateMachine{
-	State empty, filling, full, emptying;
-	Transition e2ft, f2ft, f2et,e2et;
+	BaseState empty, filling, full, emptying;
+	BaseTransition e2ft, f2ft, f2et,e2et;
 	
 	public SimpleSiloCtr(){
 		super(null);
@@ -25,7 +25,7 @@ public class SimpleSiloCtr extends StateMachine{
 	}
 
 // state definitions
-	private class Empty extends State {
+	private class Empty extends BaseState {
 		@Override
 		protected void entry() {}
 		@Override
@@ -36,7 +36,7 @@ public class SimpleSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 
-	private class Filling extends State {
+	private class Filling extends BaseState {
 		@Override
 		protected void entry() {}
 		@Override
@@ -47,7 +47,7 @@ public class SimpleSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 
-	private class Full extends State {
+	private class Full extends BaseState {
 		@Override
 		protected void entry() {}
 		@Override
@@ -58,7 +58,7 @@ public class SimpleSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 	
-	private class Emptying extends State {
+	private class Emptying extends BaseState {
 		@Override
 		protected void entry() {}
 		@Override
@@ -70,9 +70,9 @@ public class SimpleSiloCtr extends StateMachine{
 	}
 	
 // transition definitions
-	private class Empty2FillingTrans extends Transition {
+	private class Empty2FillingTrans extends BaseTransition {
 
-	public Empty2FillingTrans(State fromState, State toState) {
+	public Empty2FillingTrans(BaseState fromState, BaseState toState) {
 		super(fromState, toState);
 	}
 
@@ -86,9 +86,9 @@ public class SimpleSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Filling2FullTrans extends Transition {
+	private class Filling2FullTrans extends BaseTransition {
 
-		public Filling2FullTrans(State fromState, State toState) {
+		public Filling2FullTrans(BaseState fromState, BaseState toState) {
 			super(fromState, toState);
 		}
 
@@ -102,9 +102,9 @@ public class SimpleSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Full2EmptyingTrans extends Transition {
+	private class Full2EmptyingTrans extends BaseTransition {
 
-		public Full2EmptyingTrans(State fromState, State toState) {
+		public Full2EmptyingTrans(BaseState fromState, BaseState toState) {
 			super(fromState, toState);
 		}
 
@@ -118,9 +118,9 @@ public class SimpleSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Emptying2EmptyTrans extends Transition {
+	private class Emptying2EmptyTrans extends BaseTransition {
 
-		public Emptying2EmptyTrans(State fromState, State toState) {
+		public Emptying2EmptyTrans(BaseState fromState, BaseState toState) {
 			super(fromState, toState);
 		}
 

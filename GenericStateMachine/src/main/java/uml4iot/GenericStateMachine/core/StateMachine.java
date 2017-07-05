@@ -13,12 +13,12 @@ import org.slf4j.LoggerFactory;
 
 public class StateMachine implements Runnable {
     private static final Logger LOG = LoggerFactory.getLogger(StateMachine.class);
-    public MessageQueue itsMsgQ;
-    State initState;
+    public MessageQueue<SMReception> itsMsgQ;
+    BaseState initState;
     SMReception curReception;
-    State curState = null;
+    BaseState curState = null;
     boolean eventDiscarded = false;
-    Transition activeTransition;
+    BaseTransition activeTransition;
     // fork impl
     public MessageQueue branchMsgQ = null;
 
@@ -34,7 +34,7 @@ public class StateMachine implements Runnable {
     }
 
 
-    public void setInitState(State s) {
+    public void setInitState(BaseState s) {
         initState = s;
     }
 
