@@ -15,7 +15,7 @@ public class Message implements  SMReception {
     this.arguments = arguments;
   }
 
-  public Message(Enum id )
+  public Message(Enum id)
   {
     this.id = id;
     arguments = new ArrayList<>(3);
@@ -27,7 +27,7 @@ public class Message implements  SMReception {
   }
 
   public <T> T getArgument(int index, Class<T> type){
-    return type.cast(arguments.indexOf(index));
+    return type.cast(arguments.get(index));
   }
 
   public Enum getId()
