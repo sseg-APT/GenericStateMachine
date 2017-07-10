@@ -24,7 +24,7 @@ public abstract class BaseSignal implements SMReception {
     }
   }
 
-  public String sender, receiver;
+  public String sender, receiver, timestamp;
 
   public BaseSignal(){
   }
