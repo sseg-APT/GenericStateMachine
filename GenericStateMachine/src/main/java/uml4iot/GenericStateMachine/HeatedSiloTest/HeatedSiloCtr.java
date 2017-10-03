@@ -1,13 +1,13 @@
 package uml4iot.GenericStateMachine.HeatedSiloTest;
 
 import uml4iot.GenericStateMachine.core.SMReception;
-import uml4iot.GenericStateMachine.core.BaseState;
+import uml4iot.GenericStateMachine.core.State;
 import uml4iot.GenericStateMachine.core.StateMachine;
-import uml4iot.GenericStateMachine.core.BaseTransition;
+import uml4iot.GenericStateMachine.core.Transition;
 
 public class HeatedSiloCtr extends StateMachine{
-	BaseState empty, filling, full, emptying, heating;
-	BaseTransition e2ft, f2ft, f2et,e2et, h2et;
+	State empty, filling, full, emptying, heating;
+	Transition e2ft, f2ft, f2et,e2et, h2et;
 	
 	public HeatedSiloCtr(){
 		super(null);
@@ -29,7 +29,7 @@ public class HeatedSiloCtr extends StateMachine{
 	}
 
 // state definitions
-	private class Empty extends BaseState {
+	private class Empty extends State {
 		@Override
 		protected void entry() {}
 		@Override
@@ -40,7 +40,7 @@ public class HeatedSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 
-	private class Filling extends BaseState {
+	private class Filling extends State {
 		@Override
 		protected void entry() {}
 		@Override
@@ -51,7 +51,7 @@ public class HeatedSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 
-	private class Full extends BaseState {
+	private class Full extends State {
 		@Override
 		protected void entry() {}
 		@Override
@@ -62,7 +62,7 @@ public class HeatedSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 	
-	private class Emptying extends BaseState {
+	private class Emptying extends State {
 		@Override
 		protected void entry() {}
 		@Override
@@ -73,7 +73,7 @@ public class HeatedSiloCtr extends StateMachine{
 		protected void exit() {	}
 	}
 	
-	private class Heating extends BaseState {
+	private class Heating extends State {
 		@Override
 		protected void entry() {
 			System.out.println("Turn heater on");
@@ -88,9 +88,9 @@ public class HeatedSiloCtr extends StateMachine{
 		}
 	}
 // transition definitions
-	private class Empty2FillingTrans extends BaseTransition {
+	private class Empty2FillingTrans extends Transition {
 
-	public Empty2FillingTrans(BaseState fromState, BaseState toState) {
+	public Empty2FillingTrans(State fromState, State toState) {
 		super(fromState, toState);
 	}
 
@@ -104,9 +104,9 @@ public class HeatedSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Filling2FullTrans extends BaseTransition {
+	private class Filling2FullTrans extends Transition {
 
-		public Filling2FullTrans(BaseState fromState, BaseState toState) {
+		public Filling2FullTrans(State fromState, State toState) {
 			super(fromState, toState);
 		}
 
@@ -120,9 +120,9 @@ public class HeatedSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Full2EmptyingTrans extends BaseTransition {
+	private class Full2EmptyingTrans extends Transition {
 
-		public Full2EmptyingTrans(BaseState fromState, BaseState toState) {
+		public Full2EmptyingTrans(State fromState, State toState) {
 			super(fromState, toState);
 		}
 
@@ -136,9 +136,9 @@ public class HeatedSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Emptying2EmptyTrans extends BaseTransition {
+	private class Emptying2EmptyTrans extends Transition {
 
-		public Emptying2EmptyTrans(BaseState fromState, BaseState toState) {
+		public Emptying2EmptyTrans(State fromState, State toState) {
 			super(fromState, toState);
 		}
 
@@ -152,9 +152,9 @@ public class HeatedSiloCtr extends StateMachine{
 		}
 	}
 	
-	private class Heating2EmptyTrans extends BaseTransition {
+	private class Heating2EmptyTrans extends Transition {
 
-		public Heating2EmptyTrans(BaseState fromState, BaseState toState) {
+		public Heating2EmptyTrans(State fromState, State toState) {
 			super(fromState, toState);
 		}
 
