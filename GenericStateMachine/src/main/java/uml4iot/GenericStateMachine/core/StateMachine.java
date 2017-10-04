@@ -53,7 +53,11 @@ public class StateMachine implements Runnable {
                 // if(getValidDeferredEvent()!=null){ // gets a valid for the current state event from the deferred Pool, if any
                 //  returns a valid for the current state deferred event for further processing
                 //} else {
-                curReception = itsMsgQ.getNext(curState.getDeferredEvents());
+                try {
+                    curReception = itsMsgQ.getNext(curState.getDeferredEvents());
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 LOG.info("Reception received = " + curReception.toString());
                 //}
             } else

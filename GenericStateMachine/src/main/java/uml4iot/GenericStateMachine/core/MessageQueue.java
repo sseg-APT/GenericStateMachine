@@ -24,19 +24,14 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
 	}
 
 
-	public SMReception getNext() {
+	public SMReception getNext() throws InterruptedException{
 		// TODO Auto-generated method stub
 		SMReception ev=null;
-		try {
-			ev=this.take();
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		ev=this.take();
 		return ev;
 	}
 
-	public SMReception getNext(Collection<SMReception> ignoreSet){
+	public SMReception getNext(Collection<SMReception> ignoreSet) throws InterruptedException{
 		Stack<SMReception> ignored = new Stack<>();
 		SMReception ev = null;
 		//Get events until one is not in the ignoreSet
