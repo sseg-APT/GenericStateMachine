@@ -62,7 +62,7 @@ public class StateMachineBranchTest {
 
 
   enum TestEvents implements SMReception {
-    EVENT1, EVENT2, EVENT3, EVENT4, EVENT5, EVENT6
+    EVENT1, EVENT2, EVENT3, EVENT4, EVENT5
   }
 
   class TestStateMachine extends StateMachine {
@@ -76,13 +76,12 @@ public class StateMachineBranchTest {
       State state3Branch = new State3Branch();
       State state4 = new State4();
 
-      Transition branchTrans = new Transition1to2(state1, state2);
-      branchTrans.setBranchInitState(state2Branch);
+      (new Transition1to2(state1, state2)).setFork().setBranchInitState(state2Branch);
 
       new Transition2to3(state2, state3);
       new Transition2to3Branch(state2Branch, state3Branch);
 
-      new Transition3to4Join(state3, state4);
+      (new Transition3to4Join(state3, state4)).setJoin();
       new Transition3ToEndBranch(state3Branch, null);
 
       new Transition4ToEnd(state4, null);
@@ -200,7 +199,7 @@ public class StateMachineBranchTest {
 
 
       public Transition1to2(State fromState, State toState) {
-        super(fromState, toState, true, false, false);
+        super(fromState, toState);
       }
 
       @Override
