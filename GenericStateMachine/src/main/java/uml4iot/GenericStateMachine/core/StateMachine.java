@@ -81,6 +81,7 @@ public class StateMachine implements Runnable {
                     itsBranchThread = new Thread(bsm);
                     itsBranchThread.setName(Thread.currentThread().getName() + "-branchSmT");
                     itsBranchThread.start();
+                    branch = bsm;
                 }
 
                 if (activeTransition.hasJoin()) {

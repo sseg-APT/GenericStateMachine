@@ -1,9 +1,6 @@
 package uml4iot.GenericStateMachine.core;
 
-import com.sun.jmx.remote.internal.ArrayQueue;
-import java.lang.reflect.Array;
 import java.util.concurrent.ArrayBlockingQueue;
-import org.hamcrest.core.Is;
 import org.junit.*;
 import uml4iot.GenericStateMachine.core.StateMachineTest.TestStateMachine.Job;
 
@@ -22,11 +19,6 @@ public class StateMachineTest {
     stateMachine = new TestStateMachine();
     stateThread = new Thread(stateMachine);
     stateThread.start();
-  }
-
-  @After
-  public void finalize(){
-    //stateThread.interrupt();
   }
 
 
