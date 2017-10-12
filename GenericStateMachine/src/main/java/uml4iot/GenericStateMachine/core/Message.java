@@ -4,36 +4,33 @@ package uml4iot.GenericStateMachine.core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Message implements  SMReception {
+public class Message implements SMReception {
 
-  private Enum id;
-  private List<Object> arguments;
+    private Enum id;
 
-  public Message(Enum id, List<Object> arguments)
-  {
-    this.id = id;
-    this.arguments = arguments;
-  }
+    private List<Object> arguments;
 
-  public Message(Enum id)
-  {
-    this.id = id;
-    arguments = new ArrayList<>(3);
-  }
+    public Message(Enum id, List<Object> arguments) {
+        this.id = id;
+        this.arguments = arguments;
+    }
 
-  public void addArgument(Object arg)
-  {
-    arguments.add(arg);
-  }
+    public Message(Enum id) {
+        this.id = id;
+        arguments = new ArrayList<>(3);
+    }
 
-  public <T> T getArgument(int index, Class<T> type){
-    return type.cast(arguments.get(index));
-  }
+    public void addArgument(Object arg) {
+        arguments.add(arg);
+    }
 
-  public Enum getId()
-  {
-    return id;
-  }
+    public <T> T getArgument(int index, Class<T> type) {
+        return type.cast(arguments.get(index));
+    }
+
+    public Enum getId() {
+        return id;
+    }
 
 
 }

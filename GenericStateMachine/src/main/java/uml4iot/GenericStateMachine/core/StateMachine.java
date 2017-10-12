@@ -1,39 +1,57 @@
-//support for one branch at a time added. 
-//Transition that leads to fork should be characterized with fork=true and the branche's initState should be defined using setBranchInitState(). 
-//Transition to the initial state of branch should not be defined. 
-//Only the transition of main is characterized with join=true. 
-//the branch transition to join should be assigned null as its target state
-//Tester is HeatedSiloTest package (see state chart)
-
 package uml4iot.GenericStateMachine.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+/**
+ * This class represents a state machine.
+ */
 public class StateMachine implements Runnable {
+
     private static final Logger LOG = LoggerFactory.getLogger(StateMachine.class);
+
+    /**
+     * Message queue of the state machine, use this to add new events
+     */
     public MessageQueue itsMsgQ;
-    State initState;
-    SMReception curReception;
-    State curState = null;
-    boolean eventDiscarded = false;
-    Transition activeTransition;
+
     // fork impl
     public MessageQueue branchMsgQ = null;
 
+    State initState;
+
+    SMReception curReception;
+
+    State curState = null;
+
+    boolean eventDiscarded = false;
+
+    Transition activeTransition;
+
     boolean forkActive = false;
+
     Thread itsBranchThread = null;
+
     StateMachine branch;
 
 
+    /**
+     * State machine constructor
+     *
+     * @param msgQ message queue for the state machine. If null, it creates a new one
+     */
     public StateMachine(MessageQueue msgQ) {
         if (msgQ != null) itsMsgQ = msgQ;        //for branch SMs
         else
             itsMsgQ = new MessageQueue();
     }
 
-
+    /**
+     * Sets the initial state of the state machine. Call this before starting the thread
+     *
+     * @param s the initial state of the state machine
+     */
     public void setInitState(State s) {
         initState = s;
     }
@@ -103,7 +121,6 @@ public class StateMachine implements Runnable {
             }
         }
         LOG.info("State Machine " + Thread.currentThread().getName() + " terminated");
-
     }
 
 }
