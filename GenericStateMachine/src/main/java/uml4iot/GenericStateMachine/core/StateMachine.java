@@ -84,7 +84,7 @@ public class StateMachine implements Runnable {
             activeTransition = curState.getActiveTransition(curReception);
 
             if (activeTransition == null) {
-                LOG.error("Reception " + curReception.toString() + " is not handled at state " + curState);
+                LOG.warn("Reception " + curReception.toString() + " is not handled at state " + curState);
                 eventDiscarded = true;
             } else {    // fire transition
                 curState.exit();

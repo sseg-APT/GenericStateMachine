@@ -32,5 +32,15 @@ public class Message implements SMReception {
         return id;
     }
 
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Message id: ");
+        sb.append(id.name());
+        sb.append(" Arguments: ");
+        for (Object obj : arguments){
+            sb.append(obj.toString() + " ");
+        }
+        return sb.toString();
+    }
 
 }

@@ -79,7 +79,10 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
      * @param queue A queue to be added as child
      */
     public void addChildQueue(MessageQueue queue) {
-        childList.add(queue);
+        // Must be syncrhonized, so it doesnt modify the array while forwarding
+        synchronized (childList) {
+            childList.add(queue);
+        }
     }
 
 
@@ -90,7 +93,10 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
      * @param queue the child queue to remove
      */
     public void removeChildQueue(MessageQueue queue) {
-        childList.remove(queue);
+        // Must be syncrhonized, so it doesnt modify the array while forwarding
+        synchronized (childList){
+            childList.remove(queue);
+        }
     }
 
 
@@ -100,8 +106,11 @@ public class MessageQueue extends LinkedBlockingDeque<SMReception> {
      * @param message the message to be forwarded
      */
     private void forwardToChilds(SMReception message) {
-        for (MessageQueue child : childList) {
-            child.add(message);
+        // Must be syncrhonized, so it doesnt modify the array while forwarding
+        synchronized (childList) {
+            for (MessageQueue child : childList) {
+                child.add(message);
+            }
         }
     }
 
