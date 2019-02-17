@@ -10,11 +10,18 @@
 
     <dependencies>
         <dependency>
-            <groupId>uml4iot</groupId>
+            <groupId>com.github.sseg-APT</groupId>
             <artifactId>GenericStateMachine</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>-SNAPSHOT</version>
         </dependency>
     </dependencies>
+    
+    <repositories>
+       <repository>
+          <id>jitpack.io</id>
+          <url>https://jitpack.io</url>
+      </repository>
+    </repositories>
 
     <build>
         <plugins>
